@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <!-- Enlace al CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <style>
+        .form-check-input {
+            transform: scale(1.5);
+            /* Aumenta el tamaño del checkbox */
+        }
+
+        .form-check-label img {
+            width: 50px;
+            /* Ajusta el tamaño de las imágenes */
+            margin-right: 20px;
+            /* Añade un poco más de espacio entre la imagen y el texto */
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Contenedor principal -->
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">mi primer formulario</h5>
+
+                <!-- Alerta de error (opcional, puedes ocultarla al principio) -->
+                <div class="alert alert-danger" role="alert">
+                    faltan textos por rellenar
+                </div>
+
+
+                <!-- Formulario -->
+
+                <form action="">
+                    <!-- Aquí irán los campos del formulario en los próximos pasos -->
+
+
+
+
+
+
+                    <!-- Primera fila: Número de tarjeta, CVC, y Monto -->
+
+                    <div class="row mb-3"> <!--PRINCIPIO DE LA PRIMERA FILA-->
+
+                        <!-- Campo de Número de Tarjeta COLUMNA 1-->
+                        <div class="col-md-6">
+                            <label for="NumeroDeTarjeta" class="form-label">Numero tarjeta #</label>
+                            <input type="text" class="form-control" id="NumeroDeTarjeta"
+                                placeholder="XXXX-XXXX-XXXX-XXXX">
+                        </div>
+
+                        <!-- Campo de CVC  COLUMNA 2-->
+                        <div class="col-md-3">
+                            <label for="cvcNumero" class="form-label">Numero CVC #</label>
+                            <input type="text" class="form-control" id="cvcNumero" placeholder="0000">
+                        </div>
+
+                        <!-- Campo de Monto -->
+                        <div class="col-md-3">
+                            <label for="cantidad" class="form-label">Cantidad #</label>
+                            <input type="text" class="form-control" id="cantidad" placeholder="234,34€">
+                        </div>
+                    </div><!--FINAL DE LA PRIMERA FILA-->
+
+
+
+
+
+
+                    <!--PRINCIPIO DE LA SEGUNDA FILA-->
+                    <div class="row mb-3"><!-- Segunda fila: First Name y Last Name -->
+
+                        <!-- Campo de Primer Nombre -->
+                        <div class="col-md-6">
+                            <label for="nombre" class="form-label">Nombre #</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Benito">
+                        </div>
+
+                        <!-- Campo de apellidos -->
+                        <div class="col-md-6">
+                            <label for="apellidos" class="form-label">Apellidos #</label>
+                            <input type="text" class="form-control" id="apellidos" placeholder="cámera canon">
+                        </div>
+
+                    </div><!--FINAL DE LA SEGUNDA FILA-->
+
+
+
+                    <!--PRINCIPIO DE LA TERCERA FILA-->
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="ciudad" class="form-label">Ciudad #</label>
+                            <input type="text" class="form-control" id="ciudad" placeholder="Madrid">
+                        </div>
+
+                        <!-- Campo de Estado -->
+                        <div class="col-md-4">
+                            <label for="region" class="form-label">Región #</label>
+                            <select class="form-select" id="region">
+                                <option value="BC">Barrio el carmen</option>
+                                <option value="LO">Loriguilla</option>
+                                <option value="PS">puerta del sol</option>
+
+                            </select>
+                        </div>
+                        <!-- Campo de Código Postal -->
+
+                        <div class="col-md-4">
+                            <label for="codigoPostal" class="form-label">C.Postal #</label>
+                            <input type="text" class="form-control" id="codigoPostal" placeholder="46740">
+                        </div>
+
+                        <!-- Sección: Métodos de pago aceptados -->
+                        <div class="mb-3 mt-1">
+                            <label class="form-label">Aceptamos :</label>
+                            <div>
+
+                                <!-- Visa -->
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="visa"
+                                        value="visa">
+                                    <label class="form-check-label" for="visa">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
+                                            alt="Visa" style="width:40px; margin-right:10px;">
+                                        Visa
+                                    </label>
+                                </div>
+
+                                <!-- Mastercard -->
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="mastercard"
+                                        value="mastercard">
+                                    <label class="form-check-label" for="mastercard">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
+                                            alt="Mastercard" style="width:40px; margin-right:10px;">
+                                        Mastercard
+                                    </label>
+                                </div>
+
+                                <!-- Discover -->
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="discover"
+                                        value="discover">
+                                    <label class="form-check-label" for="discover">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
+                                            alt="Discover" style="width:40px;">
+                                        Discover
+                                    </label>
+                                </div>
+
+                            </div>
+
+                            <!-- Sección: Campo de mensaje -->
+                            <div class="mb-3">
+                                <label for="mensage" class="form-label"> Mensage #</label>
+                                <textarea class="form-control" id="mensage" rows="3"
+                                    placeholder="Añade descripcion si quieres...."></textarea>
+                            </div>
+
+                        </div>
+
+
+                    </div><!--FINAL DE LA TERCERA FILA-->
+
+                    <!-- Sección: Botones de acción -->
+                    <div class="d-flex justify-content-end">
+                        <!-- Botón Cancel -->
+                        <button type="button" class="btn btn-secondary me-2">Cancel</button>
+
+
+                        <!-- Botón Send -->
+                        <button type="button" class="btn btn-primary">Enviar</button>
+                    </div>
+                    <!-- Alerta de éxito (por defecto oculta) -->
+                    <div id="successAlert" class="alert alert-success mt-2 " role="alert"
+                        >
+                        Tu pago ha sido realizado correctamente !
+                    </div>
+
+
+
+
+
+
+
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Bootstrap JS (requiere Popper.js para algunos componentes) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Función que se ejecuta cuando el formulario se envía
+        document.querySelector('form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita que el formulario se envíe realmente (para pruebas)
+
+            // Muestra el alerta de éxito
+            var successAlert = document.getElementById('successAlert');
+            successAlert.style.display = 'block';
+
+            // Opcional: Ocultar el alerta después de 3 segundos
+            setTimeout(function () {
+                successAlert.style.display = 'none';
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>
