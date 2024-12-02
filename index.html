@@ -122,70 +122,82 @@
                         </div>
 
                         <!-- Sección: Métodos de pago aceptados -->
-                        <div class="mb-3 mt-1">
-                            <label class="form-label">Aceptamos :</label>
-                            <div>
 
-                                <!-- Visa -->
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="paymentMethod" id="visa"
-                                        value="visa">
-                                    <label class="form-check-label" for="visa">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
-                                            alt="Visa" style="width:40px; margin-right:10px;">
-                                        Visa
-                                    </label>
+
+
+                        <div class="row">
+
+                            <!--TARJETAS DE CREDITO --------------------->
+                            <div class="col-md-6">
+                                <div class="mb-3 mt-1">
+                                    <label class="form-label">Aceptamos :</label>
+                                    <br>
+
+
+                                    <div class="btn-group" role="group" aria-label="Button group with checkboxes">
+                                        <label class="btn btn-outline-primary">
+                                            <input class="form-check-input me-2" type="radio" name="paymentMethod"> <img
+                                                src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
+                                                alt="Mastercard" style="width:40px; margin-right:10px;"><br>
+                                            visa
+                                        </label>
+                                        <label class="btn btn-outline-primary ">
+                                            <input class="form-check-input me-2" type="radio" name="paymentMethod"> <img
+                                                src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
+                                                alt="Mastercard" style="width:40px; margin-right:10px;"><br>
+                                            Mastercard
+                                        </label>
+                                        <label class="btn btn-outline-primary">
+                                            <input class="form-check-input me-2" type="radio" name="paymentMethod"> <img
+                                                src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
+                                                alt="Mastercard" style="width:40px; margin-right:10px;"><br>
+                                            wise
+                                        </label>
+                                        <label class="btn btn-outline-primary">
+                                            <input class="form-check-input me-2" type="radio" name="paymentMethod"> <img
+                                                src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
+                                                alt="Mastercard" style="width:40px; margin-right:10px;"><br>
+                                            revolut
+                                        </label>
+                                    </div>
+
+
+
+
                                 </div>
-
-                                <!-- Mastercard -->
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="paymentMethod" id="mastercard"
-                                        value="mastercard">
-                                    <label class="form-check-label" for="mastercard">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
-                                            alt="Mastercard" style="width:40px; margin-right:10px;">
-                                        Mastercard
-                                    </label>
-                                </div>
-
-                                <!-- Discover -->
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="paymentMethod" id="discover"
-                                        value="discover">
-                                    <label class="form-check-label" for="discover">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
-                                            alt="Discover" style="width:40px;">
-                                        Discover
-                                    </label>
-                                </div>
-
                             </div>
 
-                            <!-- Sección: Campo de mensaje -->
-                            <div class="mb-3">
-                                <label for="mensage" class="form-label"> Mensage #</label>
-                                <textarea class="form-control" id="mensage" rows="3"
-                                    placeholder="Añade descripcion si quieres...."></textarea>
-                            </div>
 
+                            <!--TEXT AREA --------------------->
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="mensage" class="form-label"> Mensage #</label>
+                                    <textarea class="form-control" id="mensage" rows="3"
+                                        placeholder="Añade descripcion si quieres...."></textarea>
+                                </div>
+                            </div>
                         </div>
+
+
+
 
 
                     </div><!--FINAL DE LA TERCERA FILA-->
 
                     <!-- Sección: Botones de acción -->
-                    <div class="d-flex justify-content-end">
+                    <div class="d-flex justify-content-end mb-4">
                         <!-- Botón Cancel -->
                         <button type="button" class="btn btn-secondary me-2">Cancel</button>
 
 
                         <!-- Botón Send -->
-                        <button type="button" class="btn btn-primary">Enviar</button>
+                        <button type="button" id="botonAlarmaVerde" class="btn btn-success ">Enviar</button>
                     </div>
                     <!-- Alerta de éxito (por defecto oculta) -->
-                    <div id="successAlert" class="alert alert-success mt-2 " role="alert"
-                        >
+                    <div id="ContenedorAlertaVerde" class="alert alert-success alert-dismissible fade d-none "
+                        role="alert">
                         Tu pago ha sido realizado correctamente !
+                        <button type="button" class="btn-close" id="botonCerrarAlertaVerde" aria-label="Close"></button>
                     </div>
 
 
@@ -207,20 +219,36 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Función que se ejecuta cuando el formulario se envía
-        document.querySelector('form').addEventListener('submit', function (event) {
-            event.preventDefault(); // Evita que el formulario se envíe realmente (para pruebas)
 
-            // Muestra el alerta de éxito
-            var successAlert = document.getElementById('successAlert');
-            successAlert.style.display = 'block';
 
-            // Opcional: Ocultar el alerta después de 3 segundos
-            setTimeout(function () {
-                successAlert.style.display = 'none';
-            }, 3000);
+        const botonAlarmaVerde = document.getElementById('botonAlarmaVerde'); // Botón que muestra la alerta
+        const ContenedorAlertaVerde = document.getElementById('ContenedorAlertaVerde'); // Contenedor de la alerta
+        const botonCerrarAlertaVerde = document.getElementById('botonCerrarAlertaVerde'); // Botón que cierra la alerta
+
+        // Evento para mostrar la alerta
+        botonAlarmaVerde.addEventListener('click', () => {
+            // Quitar la clase d-none para mostrar la alerta
+            ContenedorAlertaVerde.classList.remove('d-none');
+            // Agregar la clase show para activar la animación de Bootstrap
+            ContenedorAlertaVerde.classList.add('show');
         });
+
+        // Evento para cerrar la alerta
+        botonCerrarAlertaVerde.addEventListener('click', () => {
+            // Quitar la clase show para desactivar la animación
+            ContenedorAlertaVerde.classList.remove('show');
+            // Agregar la clase d-none para ocultar la alerta nuevamente
+            ContenedorAlertaVerde.classList.add('d-none');
+        });
+
+
+
+
+
     </script>
+
+
+
 </body>
 
 </html>
