@@ -13,21 +13,18 @@
     <style>
         .form-check-input {
             transform: scale(1.5);
-            /* Aumenta el tamaño del checkbox */
         }
 
         .form-check-label img {
             width: 50px;
-            /* Ajusta el tamaño de las imágenes */
             margin-right: 20px;
-            /* Añade un poco más de espacio entre la imagen y el texto */
         }
     </style>
 
 </head>
 
 <body>
-    <!-- Contenedor principal -->
+    <!-- contenedor principal -->
     <div class="container mt-5">
         <div class="card">
             <div class="card-body">
@@ -42,65 +39,61 @@
                 <!-- Formulario -->
 
                 <form action="">
-                    <!-- Aquí irán los campos del formulario en los próximos pasos -->
-
-
+                   
                     <!-- Primera fila: Número de tarjeta, CVC, y Monto -->
+                    <div class="row mb-3" id="primera-fila"> 
 
-                    <div class="row mb-3"> <!--PRINCIPIO DE LA PRIMERA FILA-->
-
-                        <!-- Campo de Número de Tarjeta COLUMNA 1-->
                         <div class="col-md-6">
-                            <label for="NumeroDeTarjeta" class="form-label">Numero tarjeta #</label>
-                            <input type="text" class="form-control" id="NumeroDeTarjeta"
+                            <label for="numeroDeTarjeta" class="form-label">Numero tarjeta #</label>
+                            <input type="text" class="form-control" id="numeroDeTarjeta"
                                 placeholder="XXXX-XXXX-XXXX-XXXX">
                         </div>
 
-                        <!-- Campo de CVC  COLUMNA 2-->
+                        
                         <div class="col-md-3">
                             <label for="cvcNumero" class="form-label">Numero CVC #</label>
                             <input type="text" class="form-control" id="cvcNumero" placeholder="0000">
                         </div>
 
-                        <!-- Campo de Monto -->
+                       
                         <div class="col-md-3">
                             <label for="cantidad" class="form-label">Cantidad #</label>
                             <input type="text" class="form-control" id="cantidad" placeholder="234,34€">
                         </div>
-                    </div><!--FINAL DE LA PRIMERA FILA-->
+                    </div>
 
 
 
 
 
 
-                    <!--PRINCIPIO DE LA SEGUNDA FILA-->
-                    <div class="row mb-3"><!-- Segunda fila: First Name y Last Name -->
+                   
+                    <div class="row mb-3" id="segunda-fila"><!-- Segunda fila: First Name y Last Name -->
 
-                        <!-- Campo de Primer Nombre -->
+                        
                         <div class="col-md-6">
                             <label for="nombre" class="form-label">Nombre #</label>
                             <input type="text" class="form-control" id="nombre" placeholder="Benito">
                         </div>
 
-                        <!-- Campo de apellidos -->
+                       
                         <div class="col-md-6">
                             <label for="apellidos" class="form-label">Apellidos #</label>
                             <input type="text" class="form-control" id="apellidos" placeholder="cámera canon">
                         </div>
 
-                    </div><!--FINAL DE LA SEGUNDA FILA-->
+                    </div>
 
 
 
-                    <!--PRINCIPIO DE LA TERCERA FILA-->
-                    <div class="row mb-3">
+                    
+                    <div class="row mb-3" id="tercera-fila">
                         <div class="col-md-4">
                             <label for="ciudad" class="form-label">Ciudad #</label>
                             <input type="text" class="form-control" id="ciudad" placeholder="Madrid">
                         </div>
 
-                        <!-- Campo de Estado -->
+                        
                         <div class="col-md-4">
                             <label for="region" class="form-label">Región #</label>
                             <select class="form-select" id="region">
@@ -110,12 +103,14 @@
 
                             </select>
                         </div>
-                        <!-- Campo de Código Postal -->
+                        
 
                         <div class="col-md-4">
                             <label for="codigoPostal" class="form-label">C.Postal #</label>
                             <input type="text" class="form-control" id="codigoPostal" placeholder="46740">
                         </div>
+
+
 
                         <!-- Sección: Métodos de pago aceptados -->
 
@@ -190,7 +185,7 @@
                         <button type="button" id="botonAlarmaVerde" class="btn btn-success ">Enviar</button>
                     </div>
                     <!-- Alerta de éxito (por defecto oculta) -->
-                    <div id="ContenedorAlertaVerde" class="alert alert-success alert-dismissible fade d-none "
+                    <div id="contenedorAlertaVerde" class="alert alert-success alert-dismissible fade d-none "
                         role="alert">
                         Tu pago ha sido realizado correctamente !
                         <button type="button" class="btn-close" id="botonCerrarAlertaVerde" aria-label="Close"></button>
@@ -210,24 +205,24 @@
 
     <script>
 
-        const botonAlarmaVerde = document.getElementById('botonAlarmaVerde'); // Botón que muestra la alerta
-        const ContenedorAlertaVerde = document.getElementById('ContenedorAlertaVerde'); // Contenedor de la alerta
-        const botonCerrarAlertaVerde = document.getElementById('botonCerrarAlertaVerde'); // Botón que cierra la alerta
+        const botonAlarmaVerde = document.getElementById('botonAlarmaVerde'); 
+        const contenedorAlertaVerde = document.getElementById('contenedorAlertaVerde'); 
+        const botonCerrarAlertaVerde = document.getElementById('botonCerrarAlertaVerde'); 
 
         // Evento para mostrar la alerta
         botonAlarmaVerde.addEventListener('click', () => {
             // Quitar la clase d-none para mostrar la alerta
-            ContenedorAlertaVerde.classList.remove('d-none');
+            contenedorAlertaVerde.classList.remove('d-none');
             // Agregar la clase show para activar la animación de Bootstrap
-            ContenedorAlertaVerde.classList.add('show');
+            contenedorAlertaVerde.classList.add('show');
         });
 
         // Evento para cerrar la alerta
         botonCerrarAlertaVerde.addEventListener('click', () => {
             // Quitar la clase show para desactivar la animación
-            ContenedorAlertaVerde.classList.remove('show');
+            contenedorAlertaVerde.classList.remove('show');
             // Agregar la clase d-none para ocultar la alerta nuevamente
-            ContenedorAlertaVerde.classList.add('d-none');
+            contenedorAlertaVerde.classList.add('d-none');
         });
 
     </script>
